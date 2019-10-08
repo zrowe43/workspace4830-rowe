@@ -27,7 +27,7 @@ public class SearchRowe extends HttpServlet {
    void search(String keyword, HttpServletResponse response) throws IOException {
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
+      String title = "Events Found";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
             "transitional//en\">\n"; //
       out.println(docType + //
@@ -47,9 +47,9 @@ public class SearchRowe extends HttpServlet {
             preparedStatement = connection.prepareStatement(selectSQL);
          } else {
             String selectSQL = "SELECT * FROM MyTableRoweTechEx WHERE ENAME LIKE ?";
-            String email = keyword + "%";
+            String ename = keyword + "%";
             preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setString(1, email);
+            preparedStatement.setString(1, ename);
          }
          ResultSet rs = preparedStatement.executeQuery();
 
@@ -61,11 +61,11 @@ public class SearchRowe extends HttpServlet {
             String address = rs.getString("address").trim();
 
             if (keyword.isEmpty() || ename.contains(keyword)) {
-               out.println("ID: " + id + ", ");
-               out.println("Event Name: " + ename + ", ");
-               out.println("Date: " + date + ", ");
+               out.println("ID: " + id + "<br>");
+               out.println("Event Name: " + ename + "<br>");
+               out.println("Date: " + date + "<br>");
                out.println("Notes: " + notes + "<br>");
-               out.println("Address: " + address + "<br>");
+               out.println("Address: " + address + ";<br><br>");
             }
          }
          out.println("<a href=/webproject-techex-rowe/search_rowe.html>Search Again</a> <br>");

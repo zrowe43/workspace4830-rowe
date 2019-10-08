@@ -47,7 +47,7 @@ public class InsertRowe extends HttpServlet {
       // Set response content type
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Insert Data to DB table";
+      String title = "Insert Data to Event List";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
       out.println(docType + //
             "<html>\n" + //
