@@ -22,21 +22,21 @@ public class InsertRowe extends HttpServlet {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String userName = request.getParameter("userName");
-      String email = request.getParameter("email");
-      String phone = request.getParameter("phone");
+      String ename = request.getParameter("ename");
+      String date = request.getParameter("date");
+      String notes = request.getParameter("notes");
       String address = request.getParameter("address");
 
       Connection connection = null;
-      String insertSql = " INSERT INTO MyTableRowe0923 (id, MYUSER, EMAIL, PHONE, ADDRESS) values (default, ?, ?, ?, ?)";
+      String insertSql = " INSERT INTO MyTableRoweTechEx (id, ENAME, DATE, NOTES, ADDRESS) values (default, ?, ?, ?, ?)";
 
       try {
          DBConnectionRowe.getDBConnection();
          connection = DBConnectionRowe.connection;
          PreparedStatement preparedStmt = connection.prepareStatement(insertSql);
-         preparedStmt.setString(1, userName);
-         preparedStmt.setString(2, email);
-         preparedStmt.setString(3, phone);
+         preparedStmt.setString(1, ename);
+         preparedStmt.setString(2, date);
+         preparedStmt.setString(3, notes);
          preparedStmt.setString(4, address);
          preparedStmt.execute();
          connection.close();
@@ -56,14 +56,15 @@ public class InsertRowe extends HttpServlet {
             "<h2 align=\"center\">" + title + "</h2>\n" + //
             "<ul>\n" + //
 
-            "  <li><b>User Name</b>: " + userName + "\n" + //
-            "  <li><b>Email</b>: " + email + "\n" + //
-            "  <li><b>Phone</b>: " + phone + "\n" + //
-            "  <li><b>Phone</b>: " + address + "\n" + //
+            "  <li><b>Event Title</b>: " + ename + "\n" + //
+            "  <li><b>Date</b>: " + date + "\n" + //
+            "  <li><b>Notes</b>: " + notes + "\n" + //
+            "  <li><b>Address</b>: " + address + "\n" + //
 
             "</ul>\n");
 
-      out.println("<a href=/webproject-ex-0923-rowe/insert_rowe.html>Insert More Data</a> <br>");
+      out.println("<a href=/webproject-techex-rowe/insert_rowe.html>Insert an Event</a> <br>");
+      out.println("<a href=/webproject-techex-rowe/search_rowe.html>Search Events</a> <br>");
       out.println("</body></html>");
    }
 

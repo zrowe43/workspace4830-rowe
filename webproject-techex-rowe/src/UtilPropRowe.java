@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 public class UtilPropRowe {
    static final boolean _W = System.getProperty("os.name").toLowerCase().contains("windows");
    static String _PROP_FILENAME_WIN_LOCAL = "C:\\YOUR_PATH\\webproject\\WebContent\\config.properties";
-   static String _PROP_FILENAME_OSX_LOCAL = "/Users/ericrowe/workspace4830/workspace4830-ex-0923-rowe/webproject-ex-0923-rowe/WebContent/config.properties";
+   static String _PROP_FILENAME_OSX_LOCAL = "/Users/ericrowe/workspace4830/workspace4830-git-rowe/webproject-techex-rowe/WebContent/config.properties";
    // * Remote server path
-   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/webproject-ex-0923-rowe/config.properties";
+   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/webproject-techex-rowe/config.properties";
    static Properties prop = new Properties();
 
    public static void loadProperty() throws Exception {
